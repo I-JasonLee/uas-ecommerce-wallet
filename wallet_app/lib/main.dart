@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'services/deeplink_service.dart';
 import 'pages/payment_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/payment': (context) => PaymentPage(),
       },
-      home: Builder(
+      home: const HomePage(
         builder: (context) {
           deepLinkService.init(context);
           return HomePage();
