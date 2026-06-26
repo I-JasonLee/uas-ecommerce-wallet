@@ -8,31 +8,23 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final DeepLinkService deepLinkService = DeepLinkService();
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final DeepLinkService deepLinkService = DeepLinkService();
+
     return MaterialApp(
       title: 'Wallet App',
       routes: {
         '/payment': (context) => PaymentPage(),
       },
-      home: const HomePage(
+      home: Builder(
         builder: (context) {
           deepLinkService.init(context);
           return HomePage();
         },
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Wallet Home - Ready"),
       ),
     );
   }
